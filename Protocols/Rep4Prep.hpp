@@ -7,6 +7,7 @@
 #define PROTOCOLS_REP4PREP_HPP_
 
 #include "Rep4Prep.h"
+#include <cuda_runtime.h>
 
 template<class T>
 Rep4RingPrep<T>::Rep4RingPrep(SubProcessor<T>* proc, DataPositions& usage) :
@@ -15,6 +16,35 @@ Rep4RingPrep<T>::Rep4RingPrep(SubProcessor<T>* proc, DataPositions& usage) :
         MaliciousDabitOnlyPrep<T>(proc, usage),
         MaliciousRingPrep<T>(proc, usage)
 {
+    init_cuda();
+}
+
+template<class T>
+Rep4RingPrep<T>::~Rep4RingPrep()
+{
+    cleanup_cuda();
+}
+
+template<class T>
+void Rep4RingPrep<T>::init_cuda()
+{
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaMalloc(&d_triples, BaseMachine::batch_size<T>(DATA_TRIPLE) * sizeof(T)));
+        CUDA_CHECK(cudaMalloc(&d_squares, OnlineOptions::singleton.batch_size * sizeof(T)));
+        CUDA_CHECK(cudaMalloc(&d_bits, BaseMachine::batch_size<T>(DATA_BIT) * sizeof(typename T::open_type)));
+    }
+}
+
+template<class T>
+void Rep4RingPrep<T>::cleanup_cuda()
+{
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaFree(d_triples));
+        CUDA_CHECK(cudaFree(d_squares));
+        CUDA_CHECK(cudaFree(d_bits));
+    }
 }
 
 template<class T>

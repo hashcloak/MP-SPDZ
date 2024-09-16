@@ -7,6 +7,7 @@
 #define PROTOCOLS_REP4_H_
 
 #include "Replicated.h"
+#include <cuda_runtime.h>
 
 /**
  * Four-party protocol with malicious security via replication
@@ -98,6 +99,15 @@ public:
             const U* source, int n_inputs);
 
     int get_n_relevant_players() { return 2; }
+
+    // Add CUDA-specific members
+    T* d_x;
+    T* d_y;
+    open_type* d_add_shares;
+
+    // Add CUDA initialization and cleanup methods
+    void init_cuda();
+    void cleanup_cuda();
 };
 
 #endif /* PROTOCOLS_REP4_H_ */

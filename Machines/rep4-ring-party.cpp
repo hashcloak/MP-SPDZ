@@ -23,7 +23,23 @@
 #include "Math/Z2k.hpp"
 #include "Rep.hpp"
 
+#include <cuda_runtime.h>
+
 int main(int argc, const char** argv)
 {
+    // Initialize CUDA
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaSetDevice(OnlineOptions::singleton.cuda_device_id));
+    }
+
     HonestMajorityRingMachine<Rep4Share2, Rep4Share>(argc, argv, 4);
+
+    // Cleanup CUDA
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaDeviceReset());
+    }
+
+    return 0;
 }

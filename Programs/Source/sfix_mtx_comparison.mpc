@@ -1,0 +1,10 @@
+a = Matrix(2, 1, sfix)
+b = Matrix(2, 1, sfix)
+
+a.assign(sfix(1))
+a.assign(sfix(2))
+
+b.assign(sfix(2))
+b.assign(sfix(1))
+
+print_ln("%s", (a[0][0] < b[0][0]).if_else(0, 1).reveal())

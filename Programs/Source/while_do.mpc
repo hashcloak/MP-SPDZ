@@ -1,0 +1,5 @@
+var = 10
+@while_do(lambda x: x == 10, var)
+def f(i):
+    print_ln("%s", i)
+    #return i + 1

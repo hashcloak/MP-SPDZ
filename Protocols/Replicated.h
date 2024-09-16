@@ -16,6 +16,7 @@ using namespace std;
 #include "Tools/PointerVector.h"
 #include "Networking/Player.h"
 #include "Processor/Memory.h"
+#include <cuda_runtime.h>
 
 template<class T> class SubProcessor;
 template<class T> class ReplicatedMC;
@@ -146,6 +147,11 @@ class Replicated : public ReplicatedBase, public ProtocolBase<T>
     template<class U>
     void trunc_pr(const vector<int>& regs, int size, U& proc, false_type);
 
+    // Add CUDA-specific members
+    T* d_x;
+    T* d_y;
+    typename T::value_type* d_add_share;
+
 public:
     static const bool uses_triples = false;
 
@@ -183,5 +189,9 @@ public:
     void start_exchange();
     void stop_exchange();
 };
+
+// Add CUDA initialization and cleanup methods
+void init_cuda();
+void cleanup_cuda();
 
 #endif /* PROTOCOLS_REPLICATED_H_ */

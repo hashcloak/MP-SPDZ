@@ -18,6 +18,31 @@
 #include "ReplicatedPO.hpp"
 #include "Math/Z2k.hpp"
 
+#include <cuda_runtime.h>
+#include <device_launch_parameters.h>
+
+// Add CUDA error checking macro
+#define CUDA_CHECK(call) \
+    do { \
+        cudaError_t error = call; \
+        if (error != cudaSuccess) { \
+            fprintf(stderr, "CUDA error at %s:%d: %s\n", __FILE__, __LINE__, \
+                    cudaGetErrorString(error)); \
+            exit(EXIT_FAILURE); \
+        } \
+    } while(0)
+
+// Add CUDA kernel for prepare_mul
+template <typename T>
+__global__ void cuda_prepare_mul(const T* x, const T* y, typename T::value_type* add_share, int n)
+{
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    if (idx < n)
+    {
+        add_share[idx] = x[idx].local_mul(y[idx]);
+    }
+}
+
 template<class T>
 ProtocolBase<T>::ProtocolBase() :
         trunc_pr_counter(0), rounds(0), trunc_rounds(0), dot_counter(0),
@@ -173,8 +198,40 @@ template<class T>
 void Replicated<T>::prepare_mul(const T& x,
         const T& y, int n)
 {
-    typename T::value_type add_share = x.local_mul(y);
-    prepare_reshare(add_share, n);
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        // Allocate device memory
+        T *d_x, *d_y;
+        typename T::value_type *d_add_share;
+        CUDA_CHECK(cudaMalloc(&d_x, sizeof(T)));
+        CUDA_CHECK(cudaMalloc(&d_y, sizeof(T)));
+        CUDA_CHECK(cudaMalloc(&d_add_share, sizeof(typename T::value_type)));
+
+        // Copy data to device
+        CUDA_CHECK(cudaMemcpy(d_x, &x, sizeof(T), cudaMemcpyHostToDevice));
+        CUDA_CHECK(cudaMemcpy(d_y, &y, sizeof(T), cudaMemcpyHostToDevice));
+
+        // Launch kernel
+        int threadsPerBlock = 256;
+        int blocksPerGrid = (n + threadsPerBlock - 1) / threadsPerBlock;
+        cuda_prepare_mul<<<blocksPerGrid, threadsPerBlock>>>(d_x, d_y, d_add_share, n);
+
+        // Copy result back to host
+        typename T::value_type add_share;
+        CUDA_CHECK(cudaMemcpy(&add_share, d_add_share, sizeof(typename T::value_type), cudaMemcpyDeviceToHost));
+
+        // Free device memory
+        CUDA_CHECK(cudaFree(d_x));
+        CUDA_CHECK(cudaFree(d_y));
+        CUDA_CHECK(cudaFree(d_add_share));
+
+        prepare_reshare(add_share, n);
+    }
+    else
+    {
+        typename T::value_type add_share = x.local_mul(y);
+        prepare_reshare(add_share, n);
+    }
 }
 
 template<class T>

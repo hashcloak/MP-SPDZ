@@ -1,0 +1,3 @@
+a = sfix.get_input_from(0)
+
+print_ln("a: %s", a.reveal())

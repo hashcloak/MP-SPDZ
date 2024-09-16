@@ -1,0 +1,1 @@
+/usr/lib64/ccache/gcc -rdynamic CMakeFiles/CheckCurses.dir/CheckCurses.c.o -o CheckCurses  -lncurses /usr/lib64/libform.so 

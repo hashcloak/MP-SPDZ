@@ -1,0 +1,16 @@
+# simple_example-0--0
+ldsi s1, 5 # 0
+ldsi s0, 5 # 1
+adds s2, s1, s0 # 2
+asm_open 2, c0, s2 # 3
+inputmixed 6, 0, s1, 0, 0, s2, 1 # 4
+adds s0, s1, s2 # 5
+asm_open 2, c0, s0 # 6
+use_inp 0, 0, 1 # 7
+use_inp 0, 1, 1 # 8
+# simple_example-0-memory-usage-1
+ldmc c0, 8191 # 9
+gldmc cg0, 8191 # 10
+ldmint ci0, 8191 # 11
+ldms s0, 8191 # 12
+gldms sg0, 8191 # 13

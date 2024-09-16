@@ -1,4 +1,3 @@
-
 include CONFIG
 
 MATH = $(patsubst %.cpp,%.o,$(wildcard Math/*.cpp))
@@ -26,6 +25,17 @@ VM = $(MINI_OT) $(SHAREDLIB)
 COMMON = $(SHAREDLIB)
 TINIER =  Machines/Tinier.o $(OT)
 SPDZ = Machines/SPDZ.o $(TINIER)
+
+# Add CUDA compiler and flags
+NVCC = $(CUDA_HOME)/bin/nvcc
+CUDA_INCLUDE = -I$(CUDA_HOME)/include
+CUDA_LIBS = -L$(CUDA_HOME)/lib64 -lcudart -lcuda
+
+# Update CFLAGS to include CUDA
+CFLAGS += $(CUDA_INCLUDE)
+
+# Update LDLIBS to include CUDA libraries
+LDLIBS += $(CUDA_LIBS)
 
 
 LIB = libSPDZ.a
@@ -212,6 +222,17 @@ Fake-Offline.x: Utils/Fake-Offline.o $(VM)
 %-ecdsa-party.x: ECDSA/%-ecdsa-party.o ECDSA/P256Element.o $(VM)
 	$(CXX) -o $@ $(CFLAGS) $^ $(LDLIBS)
 
+# Add a rule for compiling CUDA files
+%.cu.o: %.cu
+	$(NVCC) $(CUDA_ARCH) -c $< -o $@
+
+# Update the OBJS variable to include CUDA object files
+OBJS += $(patsubst %.cu,%.cu.o,$(wildcard */*.cu))
+
+# Update the linking rules to include CUDA object files
+%.x: %.o $(MINI_OT) $(SHAREDLIB)
+	$(CXX) -o $@ $(CFLAGS) $^ $(LDLIBS) $(CUDA_LIBS)
+
 replicated-bin-party.x: GC/square64.o
 replicated-ring-party.x: GC/square64.o
 replicated-field-party.x: GC/square64.o
@@ -367,4 +388,5 @@ clean-deps:
 	-rm -rf local/lib/liblibOTe.* deps/libOTe/out deps/SimplestOT_C
 
 clean: clean-deps
-	-rm -f */*.o *.o */*.d *.d *.x core.* *.a gmon.out */*/*.o static/*.x *.so
+	-rm -f */*.o *.o */*.d *.d *.x core.* *.a gmon.out */*/*.o static/*.x *.so */*.cu.o
+

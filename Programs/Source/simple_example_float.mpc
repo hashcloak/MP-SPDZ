@@ -1,0 +1,6 @@
+
+a = sfloat(5)
+b = sfloat(5)
+
+c = a + b
+d = c.reveal()

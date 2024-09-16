@@ -1,0 +1,15 @@
+a = sfix(2)
+b = sfix(False)
+
+print(type(a))
+print(type(a.reveal()))
+
+c = (sfix(0) > 1).if_else(a, b)
+d = (sfix(1) > 0).if_else(a, b)
+print(type(c))
+print(type(d))
+e = (sfix(1) > 0).if_else(a, False)
+print(type(e))
+f = (sfix(0) > 1).if_else(a, False)
+print_ln("%s", c.reveal())
+print_ln("%s", f.reveal())

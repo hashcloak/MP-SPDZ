@@ -7,6 +7,7 @@
 #define PROCESSOR_ONLINEOPTIONS_HPP_
 
 #include "OnlineOptions.h"
+#include <cuda_runtime.h>  // Add this line
 
 template<class T>
 OnlineOptions::OnlineOptions(ez::ezOptionParser& opt, int argc,
@@ -82,6 +83,37 @@ OnlineOptions::OnlineOptions(ez::ezOptionParser& opt, int argc,
               "-N", // Flag token.
               "--nparties" // Flag token.
         );
+
+    // Add CUDA-specific options
+    opt.add(
+        "0", // Default.
+        0, // Required?
+        1, // Number of args expected.
+        0, // Delimiter if expecting multiple args.
+        "Use CUDA for computation (0: disabled, 1: enabled)", // Help description.
+        "-cuda", // Flag token.
+        "--use-cuda" // Flag token.
+    );
+
+    opt.add(
+        "0", // Default.
+        0, // Required?
+        1, // Number of args expected.
+        0, // Delimiter if expecting multiple args.
+        "CUDA device ID to use", // Help description.
+        "-cuda-dev", // Flag token.
+        "--cuda-device" // Flag token.
+    );
+
+    opt.add(
+        "256", // Default.
+        0, // Required?
+        1, // Number of args expected.
+        0, // Delimiter if expecting multiple args.
+        "Number of CUDA threads per block", // Help description.
+        "-cuda-tpb", // Flag token.
+        "--cuda-threads-per-block" // Flag token.
+    );
 }
 
 template<class T>
@@ -89,6 +121,20 @@ OnlineOptions::OnlineOptions(T) : OnlineOptions()
 {
     if (not T::dishonest_majority)
         batch_size = 10000;
+}
+
+// Add a method to initialize CUDA
+void OnlineOptions::init_cuda()
+{
+    if (use_cuda)
+    {
+        cudaError_t error = cudaSetDevice(cuda_device_id);
+        if (error != cudaSuccess)
+        {
+            fprintf(stderr, "Error setting CUDA device: %s\n", cudaGetErrorString(error));
+            exit(EXIT_FAILURE);
+        }
+    }
 }
 
 #endif /* PROCESSOR_ONLINEOPTIONS_HPP_ */

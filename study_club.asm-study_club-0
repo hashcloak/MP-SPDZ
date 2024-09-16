@@ -1,0 +1,37 @@
+# study_club-0--0
+ldi c0, 5 # 0
+ldi c2, 655360 # 1
+ldsi s3, 5 # 2
+ldsi s2, 655360 # 3
+addm s0, s3, c0 # 4
+print_char4 1970496882 # 5
+print_char4 540701804 # 6
+addm s1, s2, c2 # 7
+ldsi s2, 0 # 8
+ldi c2, 0 # 9
+ldi c2, -16 # 10
+ldi c3, 0 # 11
+ldi c4, 0 # 12
+ldi c5, 0 # 13
+mulm s2, s3, c0 # 14
+asm_open 7, True, c6, s0, c1, s1, c0, s2 # 15
+print_reg_plain c6 # 16
+print_char 10 # 17
+print_char4 1970496882 # 18
+print_char4 1713402988 # 19
+print_char4 1952542572 # 20
+print_char 58 # 21
+print_char 32 # 22
+print_float_plain c1, c2, c3, c4, c5 # 23
+print_char 10 # 24
+print_char4 1970496882 # 25
+print_char4 1830843500 # 26
+print_char4 540699765 # 27
+print_reg_plain c0 # 28
+print_char 10 # 29
+# study_club-0-memory-usage-1
+ldmc c0, 8191 # 30
+gldmc cg0, 8191 # 31
+ldmint ci0, 8191 # 32
+ldms s0, 8191 # 33
+gldms sg0, 8191 # 34

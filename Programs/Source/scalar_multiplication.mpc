@@ -1,0 +1,9 @@
+my_tensor = MultiArray([1, 2], sint)
+vec = my_tensor.get_vector()
+constant = sint(2, size=vec.size)
+
+result = MultiArray([1, 2], sint)
+result.assign_vector(vec * constant)
+
+my_tensor.print_reveal_nested()
+result.print_reveal_nested()

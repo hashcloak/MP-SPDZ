@@ -124,3 +124,12 @@ CFLAGS += -DUSE_KOS
 else
 CFLAGS += -std=c++17
 endif
+
+# CUDA settings
+USE_CUDA = 1
+CUDA_HOME = /usr/local/cuda
+CUDA_ARCH = -arch=sm_75  # Adjust this based on your GPU architecture
+
+# CUDA compilation flags
+CXXFLAGS += -I/usr/local/cuda/include
+LDFLAGS += -L/usr/local/cuda/lib64 -lcudart

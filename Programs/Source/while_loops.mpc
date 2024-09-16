@@ -1,0 +1,5 @@
+@while_do(lambda x, y: x < 10 and y <= 9, {'x': regint(1), 'y': regint(0)})
+def f(i, j):
+    print_ln("%s", i)
+    print_ln("%s", j)
+    return i + 1, j + 1

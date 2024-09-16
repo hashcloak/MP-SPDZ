@@ -1,0 +1,6 @@
+class SomeClass:
+    pass
+var = 11
+@for_range(10)
+def _(i, some_class=SomeClass()):
+    print_ln("%s %s", i, var)

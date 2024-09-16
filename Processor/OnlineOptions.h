@@ -9,6 +9,7 @@
 #include "Tools/ezOptionParser.h"
 #include "Math/bigint.h"
 #include "Math/Setup.h"
+#include <cuda_runtime.h>
 
 class OnlineOptions
 {
@@ -37,6 +38,10 @@ public:
     bool receive_threads;
     std::string disk_memory;
     vector<long> args;
+
+    bool use_cuda;
+    int cuda_device_id;
+    int cuda_threads_per_block;
 
     OnlineOptions();
     OnlineOptions(ez::ezOptionParser& opt, int argc, const char** argv,
@@ -67,6 +72,8 @@ public:
             lgp = numBits(prime);
         return get_prep_sub_dir<T>(PREP_DIR, nplayers, lgp);
     }
+
+    void init_cuda();
 };
 
 #endif /* PROCESSOR_ONLINEOPTIONS_H_ */

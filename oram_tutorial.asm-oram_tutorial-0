@@ -1,0 +1,900 @@
+# oram_tutorial-0--0
+ldsi s0, 0 # 0
+ldsi s0, 0 # 1
+ldsi s0, True # 2
+ldsi s0, 0 # 3
+ldsi s0, 0 # 4
+ldsi s0, True # 5
+ldint ci0, True # 6
+stmint ci0, 8192 # 7
+convint c0, ci0 # 8
+ldsi s0, 0 # 9
+addm s1, s0, c0 # 10
+stms s1, 8192 # 11
+convint c0, ci0 # 12
+ldsi s1, 0 # 13
+addm s0, s1, c0 # 14
+stms s0, 8193 # 15
+convint c0, ci0 # 16
+ldsi s0, 0 # 17
+addm s1, s0, c0 # 18
+stms s1, 8194 # 19
+convint c0, ci0 # 20
+ldsi s1, 0 # 21
+addm s0, s1, c0 # 22
+stms s0, 8195 # 23
+convint c0, ci0 # 24
+ldsi s0, 0 # 25
+addm s1, s0, c0 # 26
+stms s1, 8196 # 27
+convint c0, ci0 # 28
+ldsi s1, 0 # 29
+addm s0, s1, c0 # 30
+stms s0, 8197 # 31
+convint c0, ci0 # 32
+ldsi s0, 0 # 33
+addm s1, s0, c0 # 34
+stms s1, 8198 # 35
+convint c0, ci0 # 36
+ldsi s1, 0 # 37
+addm s0, s1, c0 # 38
+stms s0, 8199 # 39
+convint c0, ci0 # 40
+ldsi s0, 0 # 41
+addm s1, s0, c0 # 42
+stms s1, 8200 # 43
+convint c0, ci0 # 44
+ldsi s1, 0 # 45
+addm s0, s1, c0 # 46
+stms s0, 8201 # 47
+ldint ci0, 0 # 48
+stmint ci0, 8193 # 49
+convint c0, ci0 # 50
+ldsi s0, 0 # 51
+addm s1, s0, c0 # 52
+stms s1, 8202 # 53
+convint c0, ci0 # 54
+ldsi s1, 0 # 55
+addm s0, s1, c0 # 56
+stms s0, 8203 # 57
+convint c0, ci0 # 58
+ldsi s0, 0 # 59
+addm s1, s0, c0 # 60
+stms s1, 8204 # 61
+convint c0, ci0 # 62
+ldsi s1, 0 # 63
+addm s0, s1, c0 # 64
+stms s0, 8205 # 65
+convint c0, ci0 # 66
+ldsi s0, 0 # 67
+addm s1, s0, c0 # 68
+stms s1, 8206 # 69
+convint c0, ci0 # 70
+ldsi s1, 0 # 71
+addm s0, s1, c0 # 72
+stms s0, 8207 # 73
+convint c0, ci0 # 74
+ldsi s0, 0 # 75
+addm s1, s0, c0 # 76
+stms s1, 8208 # 77
+convint c0, ci0 # 78
+ldsi s1, 0 # 79
+addm s0, s1, c0 # 80
+stms s0, 8209 # 81
+convint c0, ci0 # 82
+ldsi s0, 0 # 83
+addm s1, s0, c0 # 84
+stms s1, 8210 # 85
+convint c0, ci0 # 86
+ldsi s1, 0 # 87
+addm s0, s1, c0 # 88
+stms s0, 8211 # 89
+ldint ci0, 0 # 90
+stmint ci0, 8194 # 91
+convint c0, ci0 # 92
+ldsi s0, 0 # 93
+addm s1, s0, c0 # 94
+stms s1, 8212 # 95
+convint c0, ci0 # 96
+ldsi s1, 0 # 97
+addm s0, s1, c0 # 98
+stms s0, 8213 # 99
+convint c0, ci0 # 100
+ldsi s0, 0 # 101
+addm s1, s0, c0 # 102
+stms s1, 8214 # 103
+convint c0, ci0 # 104
+ldsi s1, 0 # 105
+addm s0, s1, c0 # 106
+stms s0, 8215 # 107
+convint c0, ci0 # 108
+ldsi s0, 0 # 109
+addm s1, s0, c0 # 110
+stms s1, 8216 # 111
+convint c0, ci0 # 112
+ldsi s1, 0 # 113
+addm s0, s1, c0 # 114
+stms s0, 8217 # 115
+convint c0, ci0 # 116
+ldsi s0, 0 # 117
+addm s1, s0, c0 # 118
+stms s1, 8218 # 119
+convint c0, ci0 # 120
+ldsi s1, 0 # 121
+addm s0, s1, c0 # 122
+stms s0, 8219 # 123
+convint c0, ci0 # 124
+ldsi s0, 0 # 125
+addm s1, s0, c0 # 126
+stms s1, 8220 # 127
+convint c0, ci0 # 128
+ldsi s1, 0 # 129
+addm s0, s1, c0 # 130
+stms s0, 8221 # 131
+ldsi s0, 1 # 132
+ldsi s1, 1 # 133
+jmp 390 # 134
+# oram_tutorial-0-begin-LinearORAM-_write-1
+ldarg ci7 # 135
+ldminti ci6, ci7 # 136
+ldmsi s72, ci6 # 137
+ldint ci7, 1 # 138
+addint ci10, ci6, ci7 # 139
+ldmsi s92, ci10 # 140
+bit s105 # 141
+adds s112, s105, s105 # 142
+bit s105 # 143
+adds s111, s112, s105 # 144
+adds s112, s111, s111 # 145
+bit s111 # 146
+adds s105, s112, s111 # 147
+adds s112, s105, s105 # 148
+bit s105 # 149
+adds s111, s112, s105 # 150
+adds s112, s111, s111 # 151
+bit s111 # 152
+adds s105, s112, s111 # 153
+adds s112, s105, s105 # 154
+bit s105 # 155
+adds s111, s112, s105 # 156
+adds s112, s111, s111 # 157
+bit s111 # 158
+adds s105, s112, s111 # 159
+adds s112, s105, s105 # 160
+bit s105 # 161
+adds s111, s112, s105 # 162
+adds s112, s111, s111 # 163
+bit s111 # 164
+adds s105, s112, s111 # 165
+adds s112, s105, s105 # 166
+bit s105 # 167
+adds s111, s112, s105 # 168
+adds s112, s111, s111 # 169
+bit s111 # 170
+adds s105, s112, s111 # 171
+adds s112, s105, s105 # 172
+bit s105 # 173
+adds s111, s112, s105 # 174
+adds s112, s111, s111 # 175
+bit s111 # 176
+adds s105, s112, s111 # 177
+adds s112, s105, s105 # 178
+bit s105 # 179
+adds s111, s112, s105 # 180
+adds s112, s111, s111 # 181
+bit s111 # 182
+adds s105, s112, s111 # 183
+adds s112, s105, s105 # 184
+bit s105 # 185
+adds s111, s112, s105 # 186
+adds s112, s111, s111 # 187
+bit s111 # 188
+adds s105, s112, s111 # 189
+adds s112, s105, s105 # 190
+bit s105 # 191
+adds s111, s112, s105 # 192
+adds s112, s111, s111 # 193
+bit s111 # 194
+adds s105, s112, s111 # 195
+adds s112, s105, s105 # 196
+bit s105 # 197
+adds s111, s112, s105 # 198
+adds s112, s111, s111 # 199
+bit s111 # 200
+adds s105, s112, s111 # 201
+adds s112, s105, s105 # 202
+bit s105 # 203
+adds s111, s112, s105 # 204
+adds s112, s111, s111 # 205
+bit s111 # 206
+adds s105, s112, s111 # 207
+adds s112, s105, s105 # 208
+bit s105 # 209
+adds s111, s112, s105 # 210
+adds s112, s111, s111 # 211
+bit s111 # 212
+adds s105, s112, s111 # 213
+adds s112, s105, s105 # 214
+bit s105 # 215
+adds s111, s112, s105 # 216
+adds s112, s111, s111 # 217
+bit s111 # 218
+adds s105, s112, s111 # 219
+adds s112, s105, s105 # 220
+bit s105 # 221
+adds s111, s112, s105 # 222
+adds s112, s111, s111 # 223
+bit s111 # 224
+adds s105, s112, s111 # 225
+adds s112, s105, s105 # 226
+bit s105 # 227
+adds s111, s112, s105 # 228
+adds s112, s111, s111 # 229
+bit s111 # 230
+adds s105, s112, s111 # 231
+adds s112, s105, s105 # 232
+bit s105 # 233
+adds s111, s112, s105 # 234
+adds s112, s111, s111 # 235
+bit s111 # 236
+adds s105, s112, s111 # 237
+adds s112, s105, s105 # 238
+bit s105 # 239
+adds s111, s112, s105 # 240
+adds s112, s111, s111 # 241
+bit s111 # 242
+adds s105, s112, s111 # 243
+adds s112, s105, s105 # 244
+bit s105 # 245
+adds s111, s112, s105 # 246
+adds s112, s111, s111 # 247
+bit s111 # 248
+adds s105, s112, s111 # 249
+adds s112, s105, s105 # 250
+bit s105 # 251
+adds s111, s112, s105 # 252
+adds s112, s111, s111 # 253
+bit s111 # 254
+adds s105, s112, s111 # 255
+adds s112, s105, s105 # 256
+bit s105 # 257
+adds s111, s112, s105 # 258
+bit s112 # 259
+adds s105, s112, s112 # 260
+bit s106 # 261
+adds s109, s105, s106 # 262
+adds s105, s109, s109 # 263
+bit s109 # 264
+adds s70, s105, s109 # 265
+adds s105, s70, s70 # 266
+bit s70 # 267
+adds s110, s105, s70 # 268
+movs s105, s110 # 269
+ldi c7, 1 # 270
+shlci c8, c7, 31 # 271
+mulci c7, c8, 8192 # 272
+addci c8, c7, 16 # 273
+addm s110, s72, c8 # 274
+mulsi s72, s111, 16 # 275
+subs s111, s110, s72 # 276
+subs s110, s111, s105 # 277
+asm_open 3, True, c8, s110 # 278
+convmodp ci10, c8, 0 # 279
+bitdecint 5, ci10, ci9, ci8, ci7, ci6 # 280
+convint c8, ci9 # 281
+convint c7, ci8 # 282
+convint c6, ci7 # 283
+convint c5, ci6 # 284
+mulm s110, s70, c8 # 285
+addm s111, s70, c8 # 286
+mulsi s105, s110, 2 # 287
+subs s72, s111, s105 # 288
+mulm s72, s109, c7 # 289
+addm s111, s109, c7 # 290
+mulsi s105, s72, 2 # 291
+subs s88, s111, s105 # 292
+mulm s111, s106, c6 # 293
+addm s105, s106, c6 # 294
+mulsi s64, s111, 2 # 295
+subs s107, s105, s64 # 296
+mulm s105, s112, c5 # 297
+addm s64, s112, c5 # 298
+mulsi s78, s105, 2 # 299
+subs s68, s64, s78 # 300
+muls 9, s108, s107, s88, s78, s107, s72, s64, s88, s110 # 301
+adds s107, s111, s78 # 302
+adds s111, s72, s64 # 303
+addm s72, s70, c8 # 304
+mulsi s70, s110, 2 # 305
+subs s64, s72, s70 # 306
+addm s72, s109, c7 # 307
+adds s109, s72, s110 # 308
+mulsi s72, s111, 2 # 309
+subs s70, s109, s72 # 310
+addm s109, s106, c6 # 311
+adds s106, s109, s111 # 312
+addm s109, s112, c5 # 313
+subsfi s112, s64, 1 # 314
+subsfi s111, s70, 1 # 315
+muls 15, s74, s108, s110, s104, s112, s111, s88, s64, s111, s78, s112, s70, s72, s64, s70 # 316
+adds s108, s107, s74 # 317
+muls 3, s107, s68, s108 # 318
+adds s68, s105, s107 # 319
+mulsi s105, s68, 2 # 320
+mulsi s68, s108, 2 # 321
+subs s107, s106, s68 # 322
+adds s106, s109, s108 # 323
+subs s109, s106, s105 # 324
+stms s104, 8238 # 325
+stms s88, 8239 # 326
+stms s78, 8240 # 327
+stms s72, 8241 # 328
+subsfi s72, s107, 1 # 329
+subsfi s78, s109, 1 # 330
+muls 12, s105, s72, s78, s106, s107, s78, s104, s72, s109, s88, s107, s109 # 331
+stms s105, 8242 # 332
+stms s106, 8243 # 333
+stms s104, 8244 # 334
+stms s88, 8245 # 335
+ldms s88, 8238 # 336
+ldms s104, 8242 # 337
+ldms s106, 8238 # 338
+ldms s105, 8243 # 339
+ldms s72, 8238 # 340
+ldms s78, 8244 # 341
+ldms s107, 8238 # 342
+ldms s109, 8245 # 343
+ldms s108, 8239 # 344
+ldms s68, 8242 # 345
+ldms s74, 8239 # 346
+ldms s110, 8243 # 347
+ldms s112, 8239 # 348
+ldms s111, 8244 # 349
+ldms s64, 8239 # 350
+ldms s70, 8245 # 351
+ldms s113, 8240 # 352
+ldms s115, 8242 # 353
+ldms s114, 8240 # 354
+ldms s60, 8243 # 355
+ldms s66, 8240 # 356
+ldms s116, 8244 # 357
+ldms s118, 8240 # 358
+ldms s117, 8245 # 359
+ldms s54, 8241 # 360
+ldms s62, 8242 # 361
+ldms s119, 8241 # 362
+ldms s121, 8243 # 363
+ldms s120, 8241 # 364
+ldms s55, 8244 # 365
+ldms s57, 8241 # 366
+ldms s122, 8245 # 367
+muls 48, s82, s88, s104, s76, s106, s105, s102, s72, s78, s103, s107, s109, s101, s108, s68, s86, s74, s110, s80, s112, s111, s99, s64, s70, s100, s113, s115, s98, s114, s60, s90, s66, s116, s84, s118, s117, s96, s54, s62, s97, s119, s121, s56, s120, s55, s94, s57, s122 # 368
+movs s88, s82 # 369
+stms s88, 8222 # 370
+movs s88, s76 # 371
+stms s88, 8226 # 372
+movs s88, s102 # 373
+stms s88, 8230 # 374
+movs s88, s103 # 375
+stms s88, 8234 # 376
+movs s88, s101 # 377
+stms s88, 8223 # 378
+movs s88, s86 # 379
+stms s88, 8227 # 380
+movs s88, s80 # 381
+stms s88, 8231 # 382
+movs s88, s99 # 383
+stms s88, 8235 # 384
+movs s88, s100 # 385
+stms s88, 8224 # 386
+movs s88, s98 # 387
+stms s88, 8228 # 388
+movs s88, s90 # 389
+stms s88, 8232 # 390
+movs s88, s84 # 391
+stms s88, 8236 # 392
+movs s88, s96 # 393
+stms s88, 8225 # 394
+movs s88, s97 # 395
+stms s88, 8229 # 396
+movs s88, s56 # 397
+stms s88, 8233 # 398
+movs s88, s94 # 399
+stms s88, 8237 # 400
+stms s92, 8246 # 401
+ldms s92, 8192 # 402
+ldms s88, 8202 # 403
+ldms s94, 8212 # 404
+ldms s56, 8222 # 405
+ldms s97, 8246 # 406
+subs s96, s97, s94 # 407
+subsfi s97, s56, 0 # 408
+stms s88, 8202 # 409
+ldms s88, 8193 # 410
+ldms s84, 8203 # 411
+ldms s90, 8213 # 412
+ldms s98, 8223 # 413
+ldms s100, 8246 # 414
+subs s99, s100, s90 # 415
+subsfi s100, s98, 0 # 416
+stms s84, 8203 # 417
+ldms s84, 8194 # 418
+ldms s80, 8204 # 419
+ldms s86, 8214 # 420
+ldms s101, 8224 # 421
+ldms s103, 8246 # 422
+subs s102, s103, s86 # 423
+subsfi s103, s101, 0 # 424
+stms s80, 8204 # 425
+ldms s80, 8195 # 426
+ldms s76, 8205 # 427
+ldms s82, 8215 # 428
+ldms s104, 8225 # 429
+ldms s106, 8246 # 430
+subs s105, s106, s82 # 431
+subsfi s106, s104, 0 # 432
+stms s76, 8205 # 433
+ldms s76, 8196 # 434
+ldms s72, 8206 # 435
+ldms s78, 8216 # 436
+ldms s107, 8226 # 437
+ldms s109, 8246 # 438
+subs s108, s109, s78 # 439
+subsfi s109, s107, 0 # 440
+stms s72, 8206 # 441
+ldms s72, 8197 # 442
+ldms s68, 8207 # 443
+ldms s74, 8217 # 444
+ldms s110, 8227 # 445
+ldms s112, 8246 # 446
+subs s111, s112, s74 # 447
+subsfi s112, s110, 0 # 448
+stms s68, 8207 # 449
+ldms s68, 8198 # 450
+ldms s64, 8208 # 451
+ldms s70, 8218 # 452
+ldms s113, 8228 # 453
+ldms s115, 8246 # 454
+subs s114, s115, s70 # 455
+subsfi s115, s113, 0 # 456
+stms s64, 8208 # 457
+ldms s64, 8199 # 458
+ldms s60, 8209 # 459
+ldms s66, 8219 # 460
+ldms s116, 8229 # 461
+ldms s118, 8246 # 462
+subs s117, s118, s66 # 463
+subsfi s118, s116, 0 # 464
+stms s60, 8209 # 465
+ldms s60, 8200 # 466
+ldms s54, 8210 # 467
+ldms s62, 8220 # 468
+ldms s119, 8230 # 469
+ldms s121, 8246 # 470
+subs s120, s121, s62 # 471
+subsfi s121, s119, 0 # 472
+stms s54, 8210 # 473
+ldms s54, 8201 # 474
+ldms s55, 8211 # 475
+ldms s57, 8221 # 476
+ldms s122, 8231 # 477
+ldms s124, 8246 # 478
+subs s123, s124, s57 # 479
+subsfi s124, s122, 0 # 480
+muls 60, s95, s56, s96, s93, s97, s92, s91, s98, s99, s89, s100, s88, s87, s101, s102, s85, s103, s84, s83, s104, s105, s81, s106, s80, s79, s107, s108, s77, s109, s76, s75, s110, s111, s73, s112, s72, s71, s113, s114, s69, s115, s68, s67, s116, s117, s65, s118, s64, s63, s119, s120, s61, s121, s60, s58, s122, s123, s59, s124, s54 # 481
+adds s56, s94, s95 # 482
+stms s56, 8212 # 483
+adds s56, s92, s93 # 484
+stms s56, 8192 # 485
+adds s56, s90, s91 # 486
+stms s56, 8213 # 487
+adds s56, s88, s89 # 488
+stms s56, 8193 # 489
+adds s56, s86, s87 # 490
+stms s56, 8214 # 491
+adds s56, s84, s85 # 492
+stms s56, 8194 # 493
+adds s56, s82, s83 # 494
+stms s56, 8215 # 495
+adds s56, s80, s81 # 496
+stms s56, 8195 # 497
+adds s56, s78, s79 # 498
+stms s56, 8216 # 499
+adds s56, s76, s77 # 500
+stms s56, 8196 # 501
+adds s56, s74, s75 # 502
+stms s56, 8217 # 503
+adds s56, s72, s73 # 504
+stms s56, 8197 # 505
+adds s56, s70, s71 # 506
+stms s56, 8218 # 507
+adds s56, s68, s69 # 508
+stms s56, 8198 # 509
+adds s56, s66, s67 # 510
+stms s56, 8219 # 511
+adds s56, s64, s65 # 512
+stms s56, 8199 # 513
+adds s56, s62, s63 # 514
+stms s56, 8220 # 515
+adds s56, s60, s61 # 516
+stms s56, 8200 # 517
+adds s56, s54, s59 # 518
+adds s54, s57, s58 # 519
+stms s56, 8201 # 520
+stms s55, 8211 # 521
+stms s54, 8221 # 522
+ldmint ci6, 8195 # 523
+jmpi ci6 # 524
+# oram_tutorial-0-end-LinearORAM-_write-2
+ldint ci0, 8247 # 525
+stmint ci0, 8196 # 526
+stms s1, 8247 # 527
+stms s0, 8248 # 528
+ldint ci0, 8196 # 529
+starg ci0 # 530
+ldint ci0, 9 # 531
+stmint ci0, 8195 # 532
+jmp -399 # 533
+# oram_tutorial-0-call-LinearORAM-_write-3
+ldsi s0, 1 # 534
+jmp 335 # 535
+# oram_tutorial-0-begin-LinearORAM-_read-4
+ldarg ci1 # 536
+ldminti ci5, ci1 # 537
+ldmsi s43, ci5 # 538
+bit s39 # 539
+adds s48, s39, s39 # 540
+bit s39 # 541
+adds s52, s48, s39 # 542
+adds s48, s52, s52 # 543
+bit s52 # 544
+adds s39, s48, s52 # 545
+adds s48, s39, s39 # 546
+bit s39 # 547
+adds s52, s48, s39 # 548
+adds s48, s52, s52 # 549
+bit s52 # 550
+adds s39, s48, s52 # 551
+adds s48, s39, s39 # 552
+bit s39 # 553
+adds s52, s48, s39 # 554
+adds s48, s52, s52 # 555
+bit s52 # 556
+adds s39, s48, s52 # 557
+adds s48, s39, s39 # 558
+bit s39 # 559
+adds s52, s48, s39 # 560
+adds s48, s52, s52 # 561
+bit s52 # 562
+adds s39, s48, s52 # 563
+adds s48, s39, s39 # 564
+bit s39 # 565
+adds s52, s48, s39 # 566
+adds s48, s52, s52 # 567
+bit s52 # 568
+adds s39, s48, s52 # 569
+adds s48, s39, s39 # 570
+bit s39 # 571
+adds s52, s48, s39 # 572
+adds s48, s52, s52 # 573
+bit s52 # 574
+adds s39, s48, s52 # 575
+adds s48, s39, s39 # 576
+bit s39 # 577
+adds s52, s48, s39 # 578
+adds s48, s52, s52 # 579
+bit s52 # 580
+adds s39, s48, s52 # 581
+adds s48, s39, s39 # 582
+bit s39 # 583
+adds s52, s48, s39 # 584
+adds s48, s52, s52 # 585
+bit s52 # 586
+adds s39, s48, s52 # 587
+adds s48, s39, s39 # 588
+bit s39 # 589
+adds s52, s48, s39 # 590
+adds s48, s52, s52 # 591
+bit s52 # 592
+adds s39, s48, s52 # 593
+adds s48, s39, s39 # 594
+bit s39 # 595
+adds s52, s48, s39 # 596
+adds s48, s52, s52 # 597
+bit s52 # 598
+adds s39, s48, s52 # 599
+adds s48, s39, s39 # 600
+bit s39 # 601
+adds s52, s48, s39 # 602
+adds s48, s52, s52 # 603
+bit s52 # 604
+adds s39, s48, s52 # 605
+adds s48, s39, s39 # 606
+bit s39 # 607
+adds s52, s48, s39 # 608
+adds s48, s52, s52 # 609
+bit s52 # 610
+adds s39, s48, s52 # 611
+adds s48, s39, s39 # 612
+bit s39 # 613
+adds s52, s48, s39 # 614
+adds s48, s52, s52 # 615
+bit s52 # 616
+adds s39, s48, s52 # 617
+adds s48, s39, s39 # 618
+bit s39 # 619
+adds s52, s48, s39 # 620
+adds s48, s52, s52 # 621
+bit s52 # 622
+adds s39, s48, s52 # 623
+adds s48, s39, s39 # 624
+bit s39 # 625
+adds s52, s48, s39 # 626
+adds s48, s52, s52 # 627
+bit s52 # 628
+adds s39, s48, s52 # 629
+adds s48, s39, s39 # 630
+bit s39 # 631
+adds s52, s48, s39 # 632
+adds s48, s52, s52 # 633
+bit s52 # 634
+adds s39, s48, s52 # 635
+adds s48, s39, s39 # 636
+bit s39 # 637
+adds s52, s48, s39 # 638
+adds s48, s52, s52 # 639
+bit s52 # 640
+adds s39, s48, s52 # 641
+adds s48, s39, s39 # 642
+bit s39 # 643
+adds s52, s48, s39 # 644
+adds s48, s52, s52 # 645
+bit s52 # 646
+adds s39, s48, s52 # 647
+adds s48, s39, s39 # 648
+bit s39 # 649
+adds s52, s48, s39 # 650
+adds s48, s52, s52 # 651
+bit s52 # 652
+adds s39, s48, s52 # 653
+adds s48, s39, s39 # 654
+bit s39 # 655
+adds s52, s48, s39 # 656
+bit s48 # 657
+adds s39, s48, s48 # 658
+bit s41 # 659
+adds s46, s39, s41 # 660
+adds s39, s46, s46 # 661
+bit s46 # 662
+adds s51, s39, s46 # 663
+adds s39, s51, s51 # 664
+bit s51 # 665
+adds s50, s39, s51 # 666
+movs s39, s50 # 667
+ldi c3, 1 # 668
+shlci c4, c3, 31 # 669
+mulci c3, c4, 8192 # 670
+addci c4, c3, 16 # 671
+addm s50, s43, c4 # 672
+mulsi s43, s52, 16 # 673
+subs s52, s50, s43 # 674
+subs s50, s52, s39 # 675
+asm_open 3, True, c4, s50 # 676
+convmodp ci5, c4, 0 # 677
+bitdecint 5, ci5, ci4, ci3, ci2, ci1 # 678
+convint c4, ci4 # 679
+convint c3, ci3 # 680
+convint c2, ci2 # 681
+convint c1, ci1 # 682
+mulm s50, s51, c4 # 683
+addm s52, s51, c4 # 684
+mulsi s39, s50, 2 # 685
+subs s43, s52, s39 # 686
+mulm s43, s46, c3 # 687
+addm s52, s46, c3 # 688
+mulsi s39, s43, 2 # 689
+subs s24, s52, s39 # 690
+mulm s52, s41, c2 # 691
+addm s39, s41, c2 # 692
+mulsi s53, s52, 2 # 693
+subs s42, s39, s53 # 694
+mulm s39, s48, c1 # 695
+addm s53, s48, c1 # 696
+mulsi s44, s39, 2 # 697
+subs s45, s53, s44 # 698
+muls 9, s47, s42, s24, s44, s42, s43, s53, s24, s50 # 699
+adds s42, s52, s44 # 700
+adds s52, s43, s53 # 701
+addm s43, s51, c4 # 702
+mulsi s51, s50, 2 # 703
+subs s53, s43, s51 # 704
+addm s43, s46, c3 # 705
+adds s46, s43, s50 # 706
+mulsi s43, s52, 2 # 707
+subs s51, s46, s43 # 708
+addm s46, s41, c2 # 709
+adds s41, s46, s52 # 710
+addm s46, s48, c1 # 711
+subsfi s48, s53, 1 # 712
+subsfi s52, s51, 1 # 713
+muls 15, s49, s47, s50, s40, s48, s52, s24, s53, s52, s44, s48, s51, s43, s53, s51 # 714
+adds s47, s42, s49 # 715
+muls 3, s42, s45, s47 # 716
+adds s45, s39, s42 # 717
+mulsi s39, s45, 2 # 718
+mulsi s45, s47, 2 # 719
+subs s42, s41, s45 # 720
+adds s41, s46, s47 # 721
+subs s46, s41, s39 # 722
+stms s40, 8249 # 723
+stms s24, 8250 # 724
+stms s44, 8251 # 725
+stms s43, 8252 # 726
+subsfi s43, s42, 1 # 727
+subsfi s44, s46, 1 # 728
+muls 12, s39, s43, s44, s41, s42, s44, s40, s43, s46, s24, s42, s46 # 729
+stms s39, 8253 # 730
+stms s41, 8254 # 731
+stms s40, 8255 # 732
+stms s24, 8256 # 733
+ldms s24, 8249 # 734
+ldms s40, 8253 # 735
+ldms s41, 8249 # 736
+ldms s39, 8254 # 737
+ldms s43, 8249 # 738
+ldms s44, 8255 # 739
+ldms s42, 8249 # 740
+ldms s46, 8256 # 741
+ldms s47, 8250 # 742
+ldms s45, 8253 # 743
+ldms s49, 8250 # 744
+ldms s50, 8254 # 745
+ldms s48, 8250 # 746
+ldms s52, 8255 # 747
+ldms s53, 8250 # 748
+ldms s51, 8256 # 749
+ldms s4, 8251 # 750
+ldms s3, 8253 # 751
+ldms s2, 8251 # 752
+ldms s5, 8254 # 753
+ldms s6, 8251 # 754
+ldms s7, 8255 # 755
+ldms s8, 8251 # 756
+ldms s9, 8256 # 757
+ldms s10, 8252 # 758
+ldms s11, 8253 # 759
+ldms s12, 8252 # 760
+ldms s13, 8254 # 761
+ldms s14, 8252 # 762
+ldms s15, 8255 # 763
+ldms s16, 8252 # 764
+ldms s17, 8256 # 765
+muls 48, s36, s24, s40, s38, s41, s39, s37, s43, s44, s33, s42, s46, s35, s47, s45, s34, s49, s50, s30, s48, s52, s32, s53, s51, s31, s4, s3, s27, s2, s5, s29, s6, s7, s28, s8, s9, s22, s10, s11, s26, s12, s13, s25, s14, s15, s23, s16, s17 # 766
+movs s24, s36 # 767
+stms s24, 8222 # 768
+movs s24, s38 # 769
+stms s24, 8226 # 770
+movs s24, s37 # 771
+stms s24, 8230 # 772
+movs s24, s33 # 773
+stms s24, 8234 # 774
+movs s24, s35 # 775
+stms s24, 8223 # 776
+movs s24, s34 # 777
+stms s24, 8227 # 778
+movs s24, s30 # 779
+stms s24, 8231 # 780
+movs s24, s32 # 781
+stms s24, 8235 # 782
+movs s24, s31 # 783
+stms s24, 8224 # 784
+movs s24, s27 # 785
+stms s24, 8228 # 786
+movs s24, s29 # 787
+stms s24, 8232 # 788
+movs s24, s28 # 789
+stms s24, 8236 # 790
+movs s24, s22 # 791
+stms s24, 8225 # 792
+movs s24, s26 # 793
+stms s24, 8229 # 794
+movs s24, s25 # 795
+stms s24, 8233 # 796
+movs s24, s23 # 797
+stms s24, 8237 # 798
+ldsi s24, 0 # 799
+ldsi s23, 0 # 800
+stms s24, 8257 # 801
+stms s23, 8258 # 802
+ldms s25, 8192 # 803
+ldms s26, 8202 # 804
+ldms s26, 8212 # 805
+ldms s22, 8222 # 806
+ldms s28, 8193 # 807
+ldms s29, 8203 # 808
+ldms s29, 8213 # 809
+ldms s27, 8223 # 810
+ldms s31, 8194 # 811
+ldms s32, 8204 # 812
+ldms s32, 8214 # 813
+ldms s30, 8224 # 814
+ldms s34, 8195 # 815
+ldms s35, 8205 # 816
+ldms s35, 8215 # 817
+ldms s33, 8225 # 818
+ldms s37, 8196 # 819
+ldms s38, 8206 # 820
+ldms s38, 8216 # 821
+ldms s36, 8226 # 822
+ldms s40, 8197 # 823
+ldms s41, 8207 # 824
+ldms s41, 8217 # 825
+ldms s39, 8227 # 826
+ldms s43, 8198 # 827
+ldms s44, 8208 # 828
+ldms s44, 8218 # 829
+ldms s42, 8228 # 830
+ldms s46, 8199 # 831
+ldms s47, 8209 # 832
+ldms s47, 8219 # 833
+ldms s45, 8229 # 834
+ldms s49, 8200 # 835
+ldms s50, 8210 # 836
+ldms s50, 8220 # 837
+ldms s48, 8230 # 838
+ldms s52, 8201 # 839
+ldms s53, 8211 # 840
+ldms s53, 8221 # 841
+ldms s51, 8231 # 842
+muls 60, s21, s22, s25, s20, s22, s26, s19, s27, s28, s18, s27, s29, s17, s30, s31, s16, s30, s32, s15, s33, s34, s14, s33, s35, s13, s36, s37, s12, s36, s38, s11, s39, s40, s10, s39, s41, s9, s42, s43, s8, s42, s44, s7, s45, s46, s6, s45, s47, s5, s48, s49, s2, s48, s50, s3, s51, s52, s4, s51, s53 # 843
+adds s22, s21, s24 # 844
+adds s21, s20, s23 # 845
+adds s20, s19, s22 # 846
+adds s19, s18, s21 # 847
+adds s18, s17, s20 # 848
+adds s17, s16, s19 # 849
+adds s16, s15, s18 # 850
+adds s15, s14, s17 # 851
+adds s14, s13, s16 # 852
+adds s13, s12, s15 # 853
+adds s12, s11, s14 # 854
+adds s11, s10, s13 # 855
+adds s10, s9, s12 # 856
+adds s9, s8, s11 # 857
+adds s8, s7, s10 # 858
+adds s7, s6, s9 # 859
+adds s6, s5, s8 # 860
+adds s5, s2, s7 # 861
+adds s2, s3, s6 # 862
+adds s3, s4, s5 # 863
+movs s4, s2 # 864
+stms s4, 8257 # 865
+stms s3, 8258 # 866
+stms s3, 8259 # 867
+stms s2, 8260 # 868
+ldmint ci1, 8197 # 869
+jmpi ci1 # 870
+# oram_tutorial-0-end-LinearORAM-_read-5
+ldint ci0, 8261 # 871
+stmint ci0, 8198 # 872
+stms s0, 8261 # 873
+ldint ci0, 8198 # 874
+starg ci0 # 875
+ldint ci0, 8 # 876
+stmint ci0, 8197 # 877
+jmp -343 # 878
+# oram_tutorial-0-call-LinearORAM-_read-6
+ldms s0, 8259 # 879
+ldms s1, 8260 # 880
+asm_open 3, True, c0, s0 # 881
+print_reg_plain c0 # 882
+print_char 10 # 883
+use 0, 2, 88 # 884
+use 0, 0, 98 # 885
+reqbl 45 # 886
+# oram_tutorial-0-memory-usage-7
+ldmc c0, 8191 # 887
+gldmc cg0, 8191 # 888
+ldmint ci0, 8198 # 889
+ldms s0, 8261 # 890
+gldms sg0, 8191 # 891

@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <assert.h>
+#include <cuda_runtime.h> 
 using namespace std;
 
 #include "OnlineOptions.h"
@@ -93,5 +94,18 @@ public:
         return not big_gap();
     }
 };
+
+// Add CUDA device functions
+template <typename T>
+__device__ T cuda_upper(T mask, int n_shift, int m)
+{
+    return (mask << (n_shift + 1)) >> (n_shift + m + 1);
+}
+
+template <typename T>
+__device__ T cuda_msb(T mask, int n_shift)
+{
+    return (mask << (n_shift)) >> (T::N_BITS - 1);
+}
 
 #endif /* PROCESSOR_TRUNCPRTUPLE_H_ */

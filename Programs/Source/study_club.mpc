@@ -1,0 +1,13 @@
+
+# Clear types
+clear_type = cint(5)
+clear_type_float = cfix(10.0)
+
+# Secret types
+secret_type = sint(5)
+secret_type_float = sfix(10)
+
+# Arithmetic
+print_ln("result: %s", (secret_type + clear_type).reveal())
+print_ln("result float: %s", (secret_type_float + clear_type_float).reveal())
+print_ln("result mul: %s", (secret_type * clear_type).reveal())

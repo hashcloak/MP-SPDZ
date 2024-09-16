@@ -1,0 +1,7 @@
+
+a = sint(0)
+b = sint(1)
+print_ln("%s", a.max(b).reveal())
+
+c = sint(1)
+print_ln("%s", (c+b).max(a).reveal())

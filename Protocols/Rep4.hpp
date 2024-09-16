@@ -6,6 +6,39 @@
 #include "Rep4.h"
 #include "GC/square64.h"
 #include "Processor/TruncPrTuple.h"
+#include <cuda_runtime.h>
+
+#define CUDA_CHECK(call) \
+    do { \
+        cudaError_t error = call; \
+        if (error != cudaSuccess) { \
+            fprintf(stderr, "CUDA error at %s:%d: %s\n", __FILE__, __LINE__, \
+                    cudaGetErrorString(error)); \
+            exit(EXIT_FAILURE); \
+        } \
+    } while(0)
+
+template<class T>
+void Rep4<T>::init_cuda()
+{
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaMalloc(&d_x, sizeof(T)));
+        CUDA_CHECK(cudaMalloc(&d_y, sizeof(T)));
+        CUDA_CHECK(cudaMalloc(&d_add_shares, 5 * sizeof(open_type)));
+    }
+}
+
+template<class T>
+void Rep4<T>::cleanup_cuda()
+{
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaFree(d_x));
+        CUDA_CHECK(cudaFree(d_y));
+        CUDA_CHECK(cudaFree(d_add_shares));
+    }
+}
 
 template<class T>
 Rep4<T>::Rep4(Player& P) :
@@ -23,6 +56,8 @@ Rep4<T>::Rep4(Player& P) :
 
     for (int i = 1; i < 3; i++)
         rep_prngs[i].SetSeed(to_receive[P.get_player(i)].get_data());
+
+    init_cuda();
 }
 
 template<class T>
@@ -36,6 +71,7 @@ Rep4<T>::Rep4(Player& P, prngs_type& prngs) :
 template<class T>
 Rep4<T>::~Rep4()
 {
+    cleanup_cuda();
     for (auto& x : receive_hashes)
         for (auto& y : x)
             if (y.size > 0)
@@ -192,12 +228,37 @@ int Rep4<T>::get_player(int offset)
     return (my_num + offset) & 3;
 }
 
+// Add CUDA kernel for prepare_mul
+template <typename T>
+__global__ void cuda_prepare_mul(const T* x, const T* y, typename T::open_type* add_shares, int n)
+{
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    if (idx < n)
+    {
+        add_shares[idx] = x[idx].local_mul(y[idx]);
+    }
+}
+
 template<class T>
 void Rep4<T>::prepare_mul(const T& x, const T& y, int n_bits)
 {
-    auto a = get_addshares(x, y);
-    for (int i = 0; i < 5; i++)
-        add_shares[i].push_back(a[i]);
+    if (OnlineOptions::singleton.use_cuda)
+    {
+        CUDA_CHECK(cudaMemcpy(d_x, &x, sizeof(T), cudaMemcpyHostToDevice));
+        CUDA_CHECK(cudaMemcpy(d_y, &y, sizeof(T), cudaMemcpyHostToDevice));
+
+        int threadsPerBlock = 256;
+        int blocksPerGrid = (n_bits + threadsPerBlock - 1) / threadsPerBlock;
+        cuda_prepare_mul<<<blocksPerGrid, threadsPerBlock>>>(d_x, d_y, d_add_shares, n_bits);
+
+        CUDA_CHECK(cudaMemcpy(add_shares.data(), d_add_shares, 5 * sizeof(open_type), cudaMemcpyDeviceToHost));
+    }
+    else
+    {
+        auto a = get_addshares(x, y);
+        for (int i = 0; i < 5; i++)
+            add_shares[i].push_back(a[i]);
+    }
     bit_lengths.push_back(n_bits);
 }
 

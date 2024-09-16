@@ -1,0 +1,6 @@
+
+a = sint(5)
+b = sint(5)
+
+c = a + b
+d = c.reveal()

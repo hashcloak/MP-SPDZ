@@ -7,6 +7,7 @@
 #define PROTOCOLS_REP4INPUT_H_
 
 #include "ReplicatedInput.h"
+#include <cuda_runtime.h>
 
 template<class T>
 class Rep4Input : public InputBase<T>
@@ -20,6 +21,9 @@ class Rep4Input : public InputBase<T>
     array<PointerVector<T>, 4> results;
 
     array<Hash, 2> hashes;
+
+    // Add CUDA-specific members
+    T* d_results;
 
 public:
     Rep4Input(SubProcessor<T>& proc, MAC_Check_Base<T>&);
@@ -37,6 +41,10 @@ public:
     void finalize_other(int player, T& target, octetStream& o, int n_bits = -1);
 
     void check();
+
+    // Add CUDA initialization and cleanup methods
+    void init_cuda();
+    void cleanup_cuda();
 };
 
 #endif /* PROTOCOLS_REP4INPUT_H_ */

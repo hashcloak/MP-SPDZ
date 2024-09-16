@@ -1,0 +1,8 @@
+a = Array.create_from([sint(1), sint(2)])
+a.print_reveal_nested()
+
+def modify(a, b):
+    a[0] = b
+
+modify(a, 5)
+a.print_reveal_nested()

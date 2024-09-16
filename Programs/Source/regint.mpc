@@ -1,0 +1,3 @@
+a = regint(1)
+print_ln("%s", a)
+print_ln("%s", a.conv(int))

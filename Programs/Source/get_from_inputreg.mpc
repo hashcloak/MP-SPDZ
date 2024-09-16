@@ -1,0 +1,3 @@
+a = regint(public_input())
+
+print_ln("a: %s", a)

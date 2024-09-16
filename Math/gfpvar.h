@@ -11,6 +11,8 @@
 #include "Setup.h"
 #include "Square.h"
 
+#include <cuda_runtime.h>
+
 class FFT_Data;
 template<class T> class BitVec_;
 
@@ -124,8 +126,13 @@ public:
     bool is_one();
     bool is_bit();
 
+    __host__ __device__
     modp_type get() const;
+
+    __host__ __device__
     const void* get_ptr() const;
+
+    __host__ __device__
     void* get_ptr();
 
     void zero_overhang();
@@ -163,6 +170,22 @@ public:
 
     void output(ostream& o, bool human) const;
     void input(istream& o, bool human);
+    
+    __host__ __device__
+    modp_type local_mul(const gfpvar_& other) const
+    {
+        modp_type result;
+        #ifdef __CUDA_ARCH__
+        // CUDA device code
+        // Implement a device-specific multiplication here
+        // This is a placeholder and needs to be implemented correctly
+        result = a * other.a; // This is likely incorrect and needs proper implementation
+        #else
+        // Host code
+        Mul(result, a, other.a, ZpD);
+        #endif
+        return result;
+    }
 };
 
 typedef gfpvar_<0, MAX_MOD_SZ / 2> gfpvar;

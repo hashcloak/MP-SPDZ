@@ -9,6 +9,7 @@
 #include "MaliciousRingPrep.hpp"
 #include "MalRepRingPrep.h"
 #include "RepRingOnlyEdabitPrep.h"
+#include <cuda_runtime.h>
 
 template<class T>
 class Rep4RingPrep : public MaliciousRingPrep<T>
@@ -18,8 +19,17 @@ class Rep4RingPrep : public MaliciousRingPrep<T>
     void buffer_bits();
     void buffer_inputs(int player);
 
+    // CUDA device pointers
+    T* d_triples;
+    T* d_squares;
+    typename T::bit_type* d_bits;
+
 public:
     Rep4RingPrep(SubProcessor<T>* proc, DataPositions& usage);
+    ~Rep4RingPrep();
+
+    void init_cuda();
+    void cleanup_cuda();
 };
 
 template<class T>

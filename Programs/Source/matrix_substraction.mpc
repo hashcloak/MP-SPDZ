@@ -1,0 +1,9 @@
+P = cfix.Matrix(5,5)
+for i  in range(5):
+    for j in range(5):
+        P[i][j] = j
+F_m = sfix.Matrix(5,5)
+for i in range(5):
+    F_m[i][0]=i
+
+print_ln('%s',(P-F_m).reveal_nested())
